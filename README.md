@@ -7,7 +7,8 @@ Turtle-WoW Marksmanship Hunter Addon
 
 ### 一键输出宏
 
-Code[/script if not buffed("雄鹰守护") then CastSpellByName("雄鹰守护") end;
+Quote[
+/script if not buffed("雄鹰守护") then CastSpellByName("雄鹰守护") end;
 /script if not buffed("强击光环") then CastSpellByName("强击光环") end;
 /script HbbShot()
 /script local t,m,f,a,b,c,d=GetTime(),UnitMana("pet"),function(i,b) if ({GetPetActionInfo(i)})[7]~=b then TogglePetAutocast(i) end end; for i=1,10 do c=GetPetActionInfo(i) or ''; if c=='撕咬' then a=i elseif c=='爪击' then b=i end end if a and b then f(a,1)f(b) d=GetPetActionCooldown(a) if m >=70 or (t-d<2 and m >=45) then CastPetAction(b) end end]
