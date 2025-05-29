@@ -49,4 +49,4 @@ Turtle-WoW Marksmanship Hunter Addon
 /cast 骑乘乌龟  
 /script if not buffed("猎豹守护") then CastSpellByName("猎豹守护") end;
 
-以上出自https://luntan.turtle-wow.org/viewtopic.php?t=1325
+以上出自 << luntan.turtle-wow.org/viewtopic.php?t=1325 >>
