@@ -1,0 +1,68 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="HunterBiuBiu.lua"/>
+	<Script file="Config.lua"/>
+
+	<Frame name="Hbb_Frame" toplevel="true" enableMouse="true" movable = "true" parent="UIParent">
+		<Size>
+			<AbsDimension x="214" y="45"/>
+		</Size>
+		<Anchors>
+			<Anchor point="BOTTOM">
+				<Offset>
+					<AbsDimension x="0" y="140"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Backdrop name="Hbb_Backdrop" bgFile="Interface\TutorialFrame\TutorialFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<TileSize>
+				<AbsValue val="14"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="14"/>
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset left="4" right="4" top="4" bottom="4"/>
+			</BackgroundInsets>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="Hbb_Text" inherits="GameFontNormal" text="自动射击条锚点">
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnMouseDown>
+				if ((arg1 == "LeftButton")) then
+					this:StartMoving();
+				end
+			</OnMouseDown>
+			<OnMouseUp>
+				if(arg1 == "LeftButton") then
+					this:StopMovingOrSizing();
+				end
+			</OnMouseUp>
+			<OnLoad>
+				Hbb_Frame:Show()
+				Hbb_Frame:Hide()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+	<GameTooltip name="Hbb_Tooltip" hidden="true" inherits="GameTooltipTemplate">
+		<Scripts>
+		<Onload>
+			this:SetOwner(this, "ANCHOR_NONE");
+		</Onload>
+		</Scripts>
+	</GameTooltip>
+
+</Ui>
