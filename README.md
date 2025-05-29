@@ -1,7 +1,7 @@
 # HunterBiuBiu
 Turtle-WoW Marksmanship Hunter Addon
 
-本人非作者，感谢大佬制作此插件。如有侵权，请联络删除。
+## 本人非作者，感谢大佬制作此插件。如有侵权，请联络删除。
 
 
 ## 一键输出宏
@@ -22,7 +22,9 @@ Turtle-WoW Marksmanship Hunter Addon
 ## 钉刺宏
 
 /script if not FindBuff("毒蛇钉刺","target") then cast("毒蛇钉刺");end
-特点：如果对方身上有钉刺，则无动作，无钉刺自动补钉刺。考虑元素怪很多免疫钉刺，所以没放在主宏里
+
+## 特点：
+如果对方身上有钉刺，则无动作，无钉刺自动补钉刺。考虑元素怪很多免疫钉刺，所以没放在主宏里
 
 ## 减速宏
 
