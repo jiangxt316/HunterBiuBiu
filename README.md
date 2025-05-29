@@ -1,7 +1,7 @@
 # HunterBiuBiu
 Turtle-WoW Marksmanship Hunter Addon
 
-## 本人非作者，感谢大佬制作此插件。如有侵权，请联络删除。
+## 本人非插件作者，感谢大佬制作此插件。如有侵权，请联络删除。
 
 ## 一些实用的宏（部分需要安装SuperMacro/RoidMacro等插件）
 
