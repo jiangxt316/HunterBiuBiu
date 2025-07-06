@@ -637,14 +637,14 @@ local isAutoshotActive = function()
 	return slot and IsAutoRepeatAction(slot)==1
 end
 
-local castTrueshot = function()
+local castSteadyshot = function()
 	if checkGCD() then return end
 	-- local spellId
-	-- if spellIds['trueshot'] and GetSpellName(spellIds['trueshot'], "spell") == L["Steady Shot"] then
-	-- 	spellId = spellIds['trueshot']
+	-- if spellIds['Steadyshot'] and GetSpellName(spellIds['Steadyshot'], "spell") == L["Steady Shot"] then
+	-- 	spellId = spellIds['Steadyshot']
 	-- else
 	-- 	spellId = getSpellId(L["Steady Shot"])
-	-- 	spellIds['trueshot'] = spellId
+	-- 	spellIds['Steadyshot'] = spellId
 	-- end
 	-- CastSpell(spellId, 'spell')
 	CastSpellByName(L["Steady Shot"])
@@ -698,13 +698,13 @@ function HunterBiuBiu:OnInitialize()
 		type = "group",
 		args =
 		{
-			trueshotActionId = {
+			SteadyshotActionId = {
 				type = "text",
-				name = L["Trueshot Action Id"],
-				desc = L["Trueshot Action Id"],
-				usage = L["Trueshot Action Id"],
-				get = function() return HunterBiuBiu.db.profile.trueshotActionId end,
-				set = function(v) if toActionSlot(v) then HunterBiuBiu.db.profile.trueshotActionId = toActionSlot(v); self.trueshotActionId = toActionSlot(v); end end,
+				name = L["Steadyshot Action Id"],
+				desc = L["Steadyshot Action Id"],
+				usage = L["Steadyshot Action Id"],
+				get = function() return HunterBiuBiu.db.profile.steadyshotActionId end,
+				set = function(v) if toActionSlot(v) then HunterBiuBiu.db.profile.steadyshotActionId = toActionSlot(v); self.steadyshotActionId = toActionSlot(v); end end,
 				order = 1,
 			},
 			multishotActionId = {
@@ -1295,7 +1295,7 @@ function HunterBiuBiu:VARIABLES_LOADED()
 
 	self.tv1 = HunterBiuBiu.db.profile.tv1 == nil and 2.61 or HunterBiuBiu.db.profile.tv1
 	self.tv2 = HunterBiuBiu.db.profile.tv2 == nil and 2 or HunterBiuBiu.db.profile.tv2
-	self.trueshotActionId = HunterBiuBiu.db.profile.trueshotActionId or 22
+	self.steadyshotActionId = HunterBiuBiu.db.profile.steadyshotActionId or 22
 	self.multishotActionId = HunterBiuBiu.db.profile.multishotActionId or 23
 	self.autoshotActionId = HunterBiuBiu.db.profile.autoshotActionId or 24
 
@@ -1996,7 +1996,7 @@ local function howl()
 end
 
 function HunterBiuBiu:checkShotSlot()
-	local trueshotSpellId, multishotSpellId,autoshotSpellId
+	local steadyshotSpellId, multishotSpellId,autoshotSpellId
 	for i = 1,GetNumSpellTabs() do
 		local spellTabName,_,skipNum,SpellNum = GetSpellTabInfo(i)
 		if spellTabName == L["Shot"] then
@@ -2004,23 +2004,23 @@ function HunterBiuBiu:checkShotSlot()
 				local spellName = GetSpellName(j + skipNum, "spell")
 
 				if string.find(spellName, L["Steady Shot"]) then
-					trueshotSpellId = j + skipNum
+					steadyshotSpellId = j + skipNum
 				elseif string.find(spellName, string.gsub(L["Multi-Shot"], "%-", "%%-")) then
 					multishotSpellId = j + skipNum
 				elseif string.find(spellName, L["Auto Shot"]) then
 					autoshotSpellId = j + skipNum
 				end
 			end
-			return trueshotSpellId, multishotSpellId, autoshotSpellId
+			return steadyshotSpellId, multishotSpellId, autoshotSpellId
 		end
 	end
 end
 
 function HunterBiuBiu:autoSetAction()
-	local trueshotSpellId, multishotSpellId, autoshotSpellId = self:checkShotSlot()
-	if trueshotSpellId and multishotSpellId and autoshotSpellId then
-		if HasAction(self.trueshotActionId) then
-			PickupAction(self.trueshotActionId)
+	local steadyshotSpellId, multishotSpellId, autoshotSpellId = self:checkShotSlot()
+	if steadyshotSpellId and multishotSpellId and autoshotSpellId then
+		if HasAction(self.steadyshotActionId) then
+			PickupAction(self.steadyshotActionId)
 			ClearCursor()
 		end
 		if HasAction(self.multishotActionId) then
@@ -2032,8 +2032,8 @@ function HunterBiuBiu:autoSetAction()
 			ClearCursor()
 		end
 
-		PickupSpell(trueshotSpellId, "spell");
-		PlaceAction(self.trueshotActionId);
+		PickupSpell(steadyshotSpellId, "spell");
+		PlaceAction(self.steadyshotActionId);
 
 		PickupSpell(multishotSpellId, "spell");
 		PlaceAction(self.multishotActionId);
@@ -2323,7 +2323,7 @@ function HunterBiuBiu:HbbShot(paras)
 				castMultishot(p[7])
 				keepPolicy()
 			else
-				castTrueshot()
+				castSteadyshot()
 				keepPolicy()
 			end
 		end
@@ -2335,7 +2335,7 @@ function HunterBiuBiu:HbbShot(paras)
 				if (spd > HunterBiuBiu.tv2 or yz == 1 or yz == 2) and allowMultishot then
 					castMultishot(p[7])
 				elseif (spd > HunterBiuBiu.tv1 or yz == 1) then
-					castTrueshot()
+					castSteadyshot()
 				end
 			end
 		elseif ac2 == 2 then
@@ -2356,7 +2356,7 @@ function HunterBiuBiu:HbbShot(paras)
 end
 
 function HunterBiuBiu:CheckAction()
-	if getActionText(self.trueshotActionId) ~= L["Steady Shot"] then
+	if getActionText(self.steadyshotActionId) ~= L["Steady Shot"] then
 		return false
 	end
 	if getActionText(self.multishotActionId) ~= L["Multi-Shot"] then
