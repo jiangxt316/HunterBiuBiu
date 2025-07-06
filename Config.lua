@@ -586,7 +586,7 @@ function HbbConfigFrameInit()
     --   print('测试宁神失败')
     -- end)
 
-    local panelAutoTimer = HunterBiuBiu.CreateConfigPanel('timer', '射击计时条')
+    local panelAutoTimer = HunterBiuBiu.CreateConfigPanel('timer', 'Shot Timer')
     HunterBiuBiu.CreateConfigCheck(panelAutoTimer, "autoshotbar", L["On"], nil)
     HunterBiuBiu.CreateConfigCheck(panelAutoTimer, "autoshotbartext", L["AutoshotBarShowText"], nil)
     HunterBiuBiu.CreateConfigCheck(panelAutoTimer, "autoshotbartmr", L["AutoshotBarShowTimer"], nil)
@@ -638,7 +638,7 @@ function HbbConfigFrameInit()
     end
     checkAutoshotBarTemp(checkedTemplate)
 
-    local panelFD = HunterBiuBiu.CreateConfigPanel('fd', '假死')
+    local panelFD = HunterBiuBiu.CreateConfigPanel('fd', 'Feign Death')
     HunterBiuBiu.CreateConfigCheck(panelFD, "feigndeathon", L["On"], nil)
     HunterBiuBiu.CreateConfigCheck(panelFD, "feigndeathalarm", L["Feign Death Alarm"], nil)
     HunterBiuBiu.CreateConfigCheck(panelFD, "feigndeathmask", L["Feign Death Mask"], nil)
@@ -683,8 +683,8 @@ function HbbConfigFrameInit()
       end
     end
 
-    local panelOld = HunterBiuBiu.CreateConfigPanel('old', '老版本')
-    HunterBiuBiu.CreateConfigText(panelOld, "trueshotActionId", L["Trueshot Action Id"], function(text) actionSlotIdHandler(text, "trueshotActionId") end)
+    local panelOld = HunterBiuBiu.CreateConfigPanel('old', 'Old Version')
+    HunterBiuBiu.CreateConfigText(panelOld, "steadyshotActionId", L["steadyshot Action Id"], function(text) actionSlotIdHandler(text, "steadyshotActionId") end)
     HunterBiuBiu.CreateConfigText(panelOld, "multishotActionId", L["Multishot Action Id"], function(text) actionSlotIdHandler(text, "multishotActionId") end)
     HunterBiuBiu.CreateConfigText(panelOld, "autoshotActionId", L["Autoshot Action Id"], function(text) actionSlotIdHandler(text, "autoshotActionId") end)
 
@@ -760,13 +760,13 @@ end
 --   type = "group",
 --   args =
 --   {
---     trueshotActionId = {
+--     steadyshotActionId = {
 --       type = "text",
---       name = L["Trueshot Action Id"],
---       desc = L["Trueshot Action Id"],
---       usage = L["Trueshot Action Id"],
---       get = function() return HunterBiuBiu.db.profile.trueshotActionId end,
---       set = function(v) if toActionSlot(v) then HunterBiuBiu.db.profile.trueshotActionId = toActionSlot(v); self.trueshotActionId = toActionSlot(v); end end,
+--       name = L["steadyshot Action Id"],
+--       desc = L["steadyshot Action Id"],
+--       usage = L["steadyshot Action Id"],
+--       get = function() return HunterBiuBiu.db.profile.steadyshotActionId end,
+--       set = function(v) if toActionSlot(v) then HunterBiuBiu.db.profile.steadyshotActionId = toActionSlot(v); self.steadyshotActionId = toActionSlot(v); end end,
 --       order = 1,
 --     },
 --     multishotActionId = {
