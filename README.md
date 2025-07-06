@@ -1,3 +1,8 @@
+## 2025-07-05
+fix Steady Shot in English Client
+
+
+
 # HunterBiuBiu
 Turtle-WoW Marksmanship Hunter Addon
 
