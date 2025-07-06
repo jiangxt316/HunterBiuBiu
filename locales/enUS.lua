@@ -11,8 +11,8 @@ AceLocale:RegisterTranslations("enUS", function()
 		["Show 'Aimed Shot' in the castbar"] = "Show 'Aimed Shot' in the castbar",
 		["Multi-Shot in castbar"] = "Multi-Shot in castbar",
 		["Show 'Multi-Shot' in the castbar"] = "Show 'Multi-Shot' in the castbar",
-		["Steady Shot in castbar"] = "Trueshot in castbar",
-		["Show 'Steady Shot' in the castbar"] = "Show 'Trueshot' in the castbar",
+		["Steady Shot in castbar"] = "steadyshot in castbar",
+		["Show 'Steady Shot' in the castbar"] = "Show 'steadyshot' in the castbar",
 		["Timer Color"] = "Timer Color",
 		["Set the color of the timer between shots"] = "Set the color of the timer between shots",
 		["Draw Color"] = "Draw Color",
@@ -48,7 +48,7 @@ AceLocale:RegisterTranslations("enUS", function()
 		["Scatter Shot"] = "Scatter Shot",
 		["Scorpid Sting"] = "Scorpid Sting",
 		["Viper Sting"] = "Viper Sting",
-		["Steady Shot"] = "Trueshot",
+		["Steady Shot"] = "Steady Shot",
 		["Tranquilizing Shot"] = "Tranquilizing Shot",
 
 		["Loaded. The hunt begins!"] = "Loaded. The hunt begins!",
@@ -69,7 +69,7 @@ AceLocale:RegisterTranslations("enUS", function()
 		["Howl"] = "Furious Howl",
 		["Shot"] = "Shoot",
 
-		["Trueshot Action Id"] = "Trueshot Action Slot",
+		["steadyshot Action Id"] = "Steadyshot Action Slot",
 		["Multishot Action Id"] = "Multishot Action Slot",
 		["Autoshot Action Id"] = "Autoshot Action Slot",
 
@@ -117,7 +117,7 @@ AceLocale:RegisterTranslations("enUS", function()
 		["AutoshotBarS2cc2s"] = "Collapse Expand",
 		["AutoshotBarShowText"] = "Show AutoshotBar Text",
 		["AutoshotBarShowTimer"] = "Show AutoshotBar Timer",
-		["Assist Cast Only Combat"] = "Assist Cast Only Combat",	["Second Spell"] = "Second Cast After Trueshot",
+		["Assist Cast Only Combat"] = "Assist Cast Only Combat",	["Second Spell"] = "Second Cast After steadyshot",
 		["Only Boss"] = "Only Boss",
 		["Second Spell Limit"] = "Second Cast Limit(time to nextshot)",
 		["Multi-Shot First"]="Multi-Shot First",

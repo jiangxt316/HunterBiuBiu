@@ -69,7 +69,7 @@ AceLocale:RegisterTranslations("zhCN", function()
 		["Howl"] = "狂怒之嚎",
 		["Shot"] = "射击",
 
-		["Trueshot Action Id"] = "稳固射击动作编号",
+		["Steadyshot Action Id"] = "稳固射击动作编号",
 		["Multishot Action Id"] = "多重射击动作编号",
 		["Autoshot Action Id"] = "自动射击动作编号",
 
